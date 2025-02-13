@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "B4IKVpUGrdv4RqJ8vdTXiXg6YbTyHpFc3vxD05uToXX0b3r5M62WPM9XToVeYdIDEyOwd6M0DOXZc8VIVJMYEw==",
+  "success": true,
+  "projectFilePath": "/home/Vagid/Projects/Dotnet/SecondLab/SecondLab.csproj",
+  "expectedPackageFiles": [
+    "/home/Vagid/.nuget/packages/atksharp/3.24.24.95/atksharp.3.24.24.95.nupkg.sha512",
+    "/home/Vagid/.nuget/packages/cairosharp/3.24.24.95/cairosharp.3.24.24.95.nupkg.sha512",
+    "/home/Vagid/.nuget/packages/gdksharp/3.24.24.95/gdksharp.3.24.24.95.nupkg.sha512",
+    "/home/Vagid/.nuget/packages/giosharp/3.24.24.95/giosharp.3.24.24.95.nupkg.sha512",
+    "/home/Vagid/.nuget/packages/glibsharp/3.24.24.95/glibsharp.3.24.24.95.nupkg.sha512",
+    "/home/Vagid/.nuget/packages/gtksharp/3.24.24.95/gtksharp.3.24.24.95.nupkg.sha512",
+    "/home/Vagid/.nuget/packages/pangosharp/3.24.24.95/pangosharp.3.24.24.95.nupkg.sha512"
+  ],
+  "logs": []
+}
