@@ -47,8 +47,8 @@ class MyWindow : Gtk.Window
         viewItems[0].Activated += CreateVerticalBox;
         viewItems[1].Activated += CreateHorizontalBox;
         viewItems[2].Activated += CreateHorizontalPane;
-        //TODO: make same method for grid layout
-        /*viewItems[3].Activated += CreateVerticalBox;*/
+        viewItems[3].Activated += CreateGrid;
+        //TODO: create methods that create Frame latout
 
 
         foreach (MenuItem menuItem in viewItems)
@@ -121,6 +121,33 @@ class MyWindow : Gtk.Window
         paned.Pack2(widgets[widgets.Length - 1], true, true);
 
         mainBox.PackStart(paned, false, false, 5);
+        ShowAll();
+    }
+
+    //TODO: разобраться с отображением в сетке (Grid)
+    public void CreateGrid(object? sender, EventArgs e) 
+    {
+        ClearContent();
+
+        Widget[] widgets = InitWidgets();
+
+        int size = 20, cols = 0, rows = 0;
+
+        Grid grid = new Grid();
+        grid.RowSpacing = 5;
+        grid.ColumnSpacing = 5;
+
+        for(int i = 0; i < widgets.Length; i++)
+        {
+            grid.Attach(widgets[i], cols - rows, rows, size, size);
+            if (i%2 == 0) {
+                cols++;
+            } else {
+                rows++;
+            }
+        }
+
+        mainBox.Add(grid);
         ShowAll();
     }
 

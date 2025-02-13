@@ -21,3 +21,4 @@
 /home/Vagid/Projects/Dotnet/FourthLab/obj/Debug/net8.0/FourthLab.pdb
 /home/Vagid/Projects/Dotnet/FourthLab/obj/Debug/net8.0/FourthLab.genruntimeconfig.cache
 /home/Vagid/Projects/Dotnet/FourthLab/obj/Debug/net8.0/ref/FourthLab.dll
+/home/Vagid/Projects/Dotnet/FourthLab/obj/Debug/net8.0/FourthLab.sourcelink.json
