@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/Vagid/Projects/Dotnet/FourthLab/FourthLab.csproj": {}
+    "C:\\Users\\Vasia\\Desktop\\LABS\\DOTNET\\dotnet\\FourthLab\\FourthLab.csproj": {}
   },
   "projects": {
-    "/home/Vagid/Projects/Dotnet/FourthLab/FourthLab.csproj": {
+    "C:\\Users\\Vasia\\Desktop\\LABS\\DOTNET\\dotnet\\FourthLab\\FourthLab.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/Vagid/Projects/Dotnet/FourthLab/FourthLab.csproj",
+        "projectUniqueName": "C:\\Users\\Vasia\\Desktop\\LABS\\DOTNET\\dotnet\\FourthLab\\FourthLab.csproj",
         "projectName": "FourthLab",
-        "projectPath": "/home/Vagid/Projects/Dotnet/FourthLab/FourthLab.csproj",
-        "packagesPath": "/home/Vagid/.nuget/packages/",
-        "outputPath": "/home/Vagid/Projects/Dotnet/FourthLab/obj/",
+        "projectPath": "C:\\Users\\Vasia\\Desktop\\LABS\\DOTNET\\dotnet\\FourthLab\\FourthLab.csproj",
+        "packagesPath": "C:\\Users\\Vasia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vasia\\Desktop\\LABS\\DOTNET\\dotnet\\FourthLab\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/Vagid/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Vasia\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,7 +32,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -54,12 +60,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.12, 8.0.12]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.12, 8.0.12]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.12, 8.0.12]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.12, 8.0.12]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.112/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

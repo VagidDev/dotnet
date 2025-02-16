@@ -38,7 +38,7 @@ class MyWindow : Gtk.Window
         {
             new MenuItem("Vertical Box"),
             new MenuItem("Horizontal Box"),
-            new MenuItem("Horizontal Pane"),
+            new MenuItem("Horizontal Panel"),
             new MenuItem("Grid"),
             new MenuItem("Frame")
 
@@ -48,7 +48,7 @@ class MyWindow : Gtk.Window
         viewItems[1].Activated += CreateHorizontalBox;
         viewItems[2].Activated += CreateHorizontalPane;
         viewItems[3].Activated += CreateGrid;
-        //TODO: create methods that create Frame latout
+        viewItems[4].Activated += CreateFrame;
 
 
         foreach (MenuItem menuItem in viewItems)
@@ -124,44 +124,62 @@ class MyWindow : Gtk.Window
         ShowAll();
     }
 
-    //TODO: разобраться с отображением в сетке (Grid)
     public void CreateGrid(object? sender, EventArgs e) 
     {
         ClearContent();
 
         Widget[] widgets = InitWidgets();
-
-        int size = 20, cols = 0, rows = 0;
-
-        Grid grid = new Grid();
-        grid.RowSpacing = 5;
-        grid.ColumnSpacing = 5;
-
-        for(int i = 0; i < widgets.Length; i++)
+        Grid grid = new Grid
         {
-            grid.Attach(widgets[i], cols - rows, rows, size, size);
-            if (i%2 == 0) {
-                cols++;
-            } else {
-                rows++;
-            }
+            RowSpacing = 10,
+            ColumnSpacing = 10
+        };
+
+        for (int i = 0; i < widgets.Length; i++)
+        {
+            int row = i / 2;
+            int col = i % 2;
+            grid.Attach(widgets[i], col, row, 1, 1);
         }
 
-        mainBox.Add(grid);
+        mainBox.PackStart(grid, true, true, 5);
         ShowAll();
     }
+    
+    public void CreateFrame(object? sender, EventArgs e)
+    {
+        Frame frame = new Frame("Framed Layout");
+
+        if (mainBox.Children.Length == 1)
+        {
+            Box emptyBox = new Box(Orientation.Vertical, 5);
+            frame.Add(emptyBox);
+        }
+        else
+        {
+            Widget content = mainBox.Children[1];
+            mainBox.Remove(content);
+            frame.Add(content);
+        }
+
+        mainBox.PackStart(frame, false, false, 5);
+
+        ShowAll();
+    }
+
 
     void ClearContent()
     {
         foreach (Widget child in mainBox.Children)
         {
-            if (child is Box || child is Paned)
+            if (!(child is MenuBar))
             {
                 mainBox.Remove(child);
                 child.Destroy();
             }
         }
     }
+
 }
 
 class MainWindow
