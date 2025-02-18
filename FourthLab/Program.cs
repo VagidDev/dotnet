@@ -29,6 +29,8 @@ class MyWindow : Gtk.Window
             new MenuItem("Exit")
         };
 
+        fileItems[fileItems.Length - 1].Activated += (sender, e) => Application.Quit();
+
         foreach (MenuItem menuItem in fileItems)
         {
             filemenu.Append(menuItem);
