@@ -1,89 +1,92 @@
-﻿using Gdk;
+﻿using Cairo;
+using Gdk;
 using Gtk;
-using static Gtk.Orientation;
+using Color = Cairo.Color;
+class Area : DrawingArea
+{
+    public Color color = new Color(1, 0, 0);
+    public Area()
+    {
+        SetSizeRequest(0, 100);
+    }
+    public void setColor(Color c)
+    {
+        color = c;
+        QueueDraw();
+    }
+    protected override bool OnDrawn(Context c)
+    {
+        c.SetSourceColor(color);
+        c.Paint();
+        return true;
+    }
+}
 class MyWindow : Gtk.Window
 {
-    Entry text_box = new Entry();
-    Label input_label = new Label("password: ");
-    Button generate_button = new Button("Generate");
-    CheckButton uppercase = new CheckButton("Uppercase");
-    Button exit_button = new Button("Exit");
-    ComboBoxText language_comboBox = new ComboBoxText();
-    public MyWindow() : base("password selector")
+    Area area = new Area();
+    public MyWindow() : base("colors")
     {
-        Box row = new Box(Horizontal, 0);
-        row.Add(input_label);
-        row.Add(text_box);
-        Box row2 = new Box(Horizontal, 3);
-        row2.Add(generate_button);
-        generate_button.Clicked += on_generate;
-        row2.Add(uppercase);
-        Box row3 = new Box(Horizontal, 0);
-        row3.Add(exit_button);
-        language_comboBox.AppendText("RUS");
-        language_comboBox.AppendText("ROM");
-        language_comboBox.AppendText("ENG");
-        row3.Add(language_comboBox);
-        language_comboBox.Changed += change_language;
-        exit_button.Clicked += on_exit;
-        Box vbox = new Box(Vertical, 5);
-        vbox.Add(row);
-        vbox.Add(row2);
-        vbox.Add(row3);
+        Box hbox = new Box(Gtk.Orientation.Horizontal, 5);
+        RadioButton r = new RadioButton("red");
+        RadioButton g = new RadioButton(r, "green");
+        RadioButton b = new RadioButton(r, "blue");
+        RadioButton p = new RadioButton(r, "purple");
+        RadioButton y = new RadioButton(r, "yellow");
+        RadioButton w = new RadioButton(r, "white");
+        RadioButton black = new RadioButton(r, "black");
+
+        r.Clicked += on_red_clicked;
+        g.Clicked += on_green_clicked;
+        b.Clicked += on_blue_clicked;
+        p.Clicked += on_purple_clicked;
+        y.Clicked += on_yellow_clicked;
+        w.Clicked += on_white_clicked;
+        black.Clicked += on_black_clicked;
+
+        hbox.Add(r);
+        hbox.Add(g);
+        hbox.Add(b);
+        hbox.Add(p);
+        hbox.Add(y);
+        hbox.Add(w);
+        hbox.Add(black);
+        hbox.Margin = 5;
+        Box vbox = new Box(Gtk.Orientation.Vertical, 5);
+        vbox.Add(hbox);
+        vbox.Add(area);
         Add(vbox);
-        vbox.Margin = 5;
     }
-    void on_generate(object? sender, EventArgs args)
+    void on_red_clicked(object? sender, EventArgs e)
     {
-        Random rand = new Random();
-        string consonants = "bcdfghjklmnoqrstuwxyz";
-        string vowels = "aeiou";
-        string password = "";
-        for (int i = 0; i < 5; ++i)
-        {
-            password += consonants[rand.Next(consonants.Length)];
-            password += vowels[rand.Next(vowels.Length)];
-        }
-        if (uppercase.Active)
-            password = password.ToUpper();
-        text_box.Text = password;
+        area.setColor(new Color(1, 0, 0));
+    }
+    void on_green_clicked(object? sender, EventArgs e)
+    {
+        area.setColor(new Color(0, 1, 0));
+    }
+    void on_blue_clicked(object? sender, EventArgs e)
+    {
+        area.setColor(new Color(0, 0, 1));
     }
 
-    void change_language(object? sender, EventArgs args)
+    void on_purple_clicked(object? sender, EventArgs e)
     {
-        var value = language_comboBox.ActiveText;
-        switch (value)
-        {
-            case "RUS":
-                input_label.Text = "пароль:";
-                generate_button.Label = "Сгенерировать";
-                uppercase.Label = "Верхний регистр";
-                exit_button.Label = "Выход";
-                break;
-            case "ROM":
-                input_label.Text = "parola:";
-                generate_button.Label = "Generați";
-                uppercase.Label = "Majuscule";
-                exit_button.Label = "Ieșire";
-                break;
-            case "ENG":
-                input_label.Text = "password:";
-                generate_button.Label = "Generate";
-                uppercase.Label = "Uppercase";
-                exit_button.Label = "Exit";
-                break;
-        }
+        area.setColor(new Color(1, 0, 1));
     }
 
-    void on_exit(object? sender, EventArgs args)
+    void on_yellow_clicked(object? sender, EventArgs e)
     {
-        using (MessageDialog d = new MessageDialog(this,
-        DialogFlags.Modal, MessageType.Warning, ButtonsType.Ok,
-        "the password is '{0}'", text_box.Text))
-        {
-            d.Run();
-            Application.Quit();
-        }
+        area.setColor(new Color(1, 1, 0));
+    }
+
+    void on_white_clicked(object? sender, EventArgs e)
+    {
+        area.setColor(new Color(1, 1, 1));
+    }
+
+    void on_black_clicked(object? sender, EventArgs e)
+    {
+        area.setColor(new Color(0, 0, 0));
     }
     protected override bool OnDeleteEvent(Event e)
     {

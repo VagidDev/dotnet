@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FifthLab")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+924ffba3f85cc50831a874dcfadf961a91d25df9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ce96b84958f6978c702d790c7a7fb5289408232c")]
 [assembly: System.Reflection.AssemblyProductAttribute("FifthLab")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FifthLab")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
