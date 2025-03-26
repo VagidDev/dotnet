@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.24"/>
+  <object class="GtkWindow" id="MyWindow">
+    <property name="title">colors</property>
+    <property name="default-width">600</property>
+    <property name="default-height">200</property>
+    <child>
+      <object class="GtkBox" id="vbox">
+        <property name="orientation">vertical</property>
+        <property name="spacing">5</property>
+        <property name="margin">5</property>
+        <child>
+          <object class="GtkBox" id="hbox">
+            <property name="orientation">horizontal</property>
+            <property name="spacing">5</property>
+            <child>
+              <object class="GtkRadioButton" id="r">
+                <property name="label">red</property>
+                <property name="active">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkRadioButton" id="g">
+                <property name="label">green</property>
+                <property name="group">r</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkRadioButton" id="b">
+                <property name="label">blue</property>
+                <property name="group">r</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkRadioButton" id="p">
+                <property name="label">purple</property>
+                <property name="group">r</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkRadioButton" id="y">
+                <property name="label">yellow</property>
+                <property name="group">r</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkRadioButton" id="w">
+                <property name="label">white</property>
+                <property name="group">r</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkRadioButton" id="black">
+                <property name="label">black</property>
+                <property name="group">r</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkDrawingArea" id="area">
+            <property name="height-request">100</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
